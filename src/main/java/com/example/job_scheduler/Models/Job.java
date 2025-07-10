@@ -13,7 +13,8 @@ public class Job {
     public int failCount;
     public int retryCount;
     public long epoch;
-    public int status;
+    public int status; // 2 done, 1 scheduled, 0 ignore
     public long waitPeriod;
     public String payload;
+
 }

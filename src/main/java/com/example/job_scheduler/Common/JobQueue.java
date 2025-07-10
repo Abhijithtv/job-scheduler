@@ -5,6 +5,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 @Component
@@ -17,6 +18,11 @@ public class JobQueue {
 
     public synchronized void add(JobTask jobTask){
         queue.add(jobTask);
+        notifyAll();
+    }
+
+    public synchronized void addAll(List<JobTask> jobTasks){
+        queue.addAll(jobTasks);
         notifyAll();
     }
 

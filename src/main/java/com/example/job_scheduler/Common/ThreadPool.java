@@ -1,6 +1,7 @@
 package com.example.job_scheduler.Common;
 
 import com.example.job_scheduler.Models.JobTask;
+import com.example.job_scheduler.Repository.JobRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,16 +9,19 @@ import java.util.List;
 public class ThreadPool {
     private final List<Thread> threads;
     private final JobQueue jobQueue;
+    private final JobRepository jobRepository;
+    private final int activationCount;
 
-    public ThreadPool(int activationCount, JobQueue jobQueue){
+    public ThreadPool(int activationCount, JobQueue jobQueue, JobRepository jobRepository){
         this.threads = new ArrayList<>();
         this.jobQueue = jobQueue;
-        fillPool(activationCount);
+        this.jobRepository = jobRepository;
+        this.activationCount = activationCount;
     }
 
-    private void fillPool(int activationCount) {
+    public void fillPool() {
         for(int i=0; i<activationCount; i++){
-            threads.add(new Thread(new Worker(jobQueue), "Worker-" + i));
+            threads.add(new Thread(new Worker(jobQueue, jobRepository), "Worker-" + i));
         }
     }
 

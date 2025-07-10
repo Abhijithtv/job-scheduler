@@ -10,7 +10,7 @@ public class JobInfo {
 
     @Min(value = 0, message = "Wait period must be >= 0")
     private long waitPeriod;
-    
+
     public String getPayload() {
         return payload;
     }

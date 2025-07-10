@@ -6,10 +6,11 @@ import com.example.job_scheduler.Models.JobInfo;
 import com.example.job_scheduler.Repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-@Component
+@Service
 public class JobService {
 
     private final JobRepository jobRepository;

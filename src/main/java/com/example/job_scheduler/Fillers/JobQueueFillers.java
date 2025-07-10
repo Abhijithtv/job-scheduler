@@ -1,4 +1,4 @@
-package com.example.job_scheduler.fillers;
+package com.example.job_scheduler.Fillers;
 
 import com.example.job_scheduler.Common.JobQueue;
 import com.example.job_scheduler.Config.FillerConfig;
@@ -6,6 +6,8 @@ import com.example.job_scheduler.Models.JobTask;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.UUID;
 
 @Component
 public class JobQueueFillers {
@@ -25,7 +27,7 @@ public class JobQueueFillers {
         }
 
         for(int i=0; i<20; i++){
-            this.jobQueue.add(new JobTask(i, "from i="+i));
+            this.jobQueue.add(new JobTask(UUID.randomUUID(), "from i="+i));
         }
     }
 
