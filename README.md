@@ -34,10 +34,10 @@ It's built using Spring Boot with Redis and an optional relational DB for persis
 - ⏱ Schedule jobs for future execution
 - 🔁 Recurring job support
 - ❗ Job retries and failure tracking
-- 🔄 Redis-backed task queueing (ZSET optional)
+- 🔄 Redis-backed task queueing 
 - 🧵 Configurable custom thread pool
 - ⚙️ Worker system to process jobs in parallel
-- 💾 Spring Boot + JPA integration for persistent storage
+- 💾 Built using Spring Boot and CrudRepository
 - 🔐 Bean-configurable startup system
 
 ---
