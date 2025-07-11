@@ -1,15 +1,16 @@
-package com.example.job_scheduler.Starters;
+package com.example.job_scheduler.Starters.Implementations;
 
 import com.example.job_scheduler.Common.JobQueue;
 import com.example.job_scheduler.Common.ThreadPool;
 import com.example.job_scheduler.Config.StarterConfig;
 import com.example.job_scheduler.Repository.JobRepository;
+import com.example.job_scheduler.Starters.Interfaces.IThreadPoolStarter;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ThreadPoolStarter {
+public class ThreadPoolStarter implements IThreadPoolStarter {
 
     private final JobQueue jobQueue;
     private final StarterConfig starterConfig;
@@ -22,6 +23,7 @@ public class ThreadPoolStarter {
         this.jobRepository = repository;
     }
 
+    @Override
     @PostConstruct
     public void startPool() {
         int poolSize = this.starterConfig.getThreadPool().getSize();

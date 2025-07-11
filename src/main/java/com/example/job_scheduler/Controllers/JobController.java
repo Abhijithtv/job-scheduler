@@ -2,8 +2,8 @@ package com.example.job_scheduler.Controllers;
 
 import com.example.job_scheduler.Models.Job;
 import com.example.job_scheduler.Models.JobInfo;
-import com.example.job_scheduler.Services.JobService;
-import jakarta.validation.Valid;
+import com.example.job_scheduler.Services.Implementations.JobService;
+import com.example.job_scheduler.Services.Interfaces.IJobService;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -16,10 +16,10 @@ import java.util.UUID;
 @Validated
 public class JobController {
 
-    private final JobService jobService;
+    private final IJobService jobService;
 
     @Autowired
-    public  JobController(JobService jobService){
+    public  JobController(IJobService jobService){
         this.jobService = jobService;
     }
 
